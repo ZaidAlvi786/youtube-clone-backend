@@ -1,0 +1,37 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs
+*.log
+npm-debug.log
+yarn-debug.log
+pnpm-debug.log
+debug.log
+
+# Environment Variables
+.env
+
+# MongoDB database files (if using local MongoDB)
+data/
+dump/
+
+# Uploaded Files (Videos & Thumbnails)
+uploads/
+
+# IDE Files
+.vscode/
+*.swp
+.DS_Store
+
+# Next.js & Build Cache
+.next/
+dist/
+.cache/
+
+# Docker & CI/CD (if using)
+docker-compose.override.yml
