@@ -11,10 +11,25 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Upload Video
+// ✅ GET All Videos (Fix for Frontend `GET /api/videos` Request)
+router.get("/", async (req, res) => {
+  try {
+    const videos = await Video.find();
+    res.json(videos);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch videos" });
+  }
+});
+
+// ✅ Upload Video
 router.post("/upload", upload.single("video"), async (req, res) => {
   try {
     const { title, description } = req.body;
+    
+    if (!req.file) {
+      return res.status(400).json({ error: "No video file uploaded" });
+    }
+
     const video = await Video.create({
       title,
       description,
